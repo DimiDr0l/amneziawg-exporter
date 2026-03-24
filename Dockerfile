@@ -8,7 +8,7 @@ COPY . /exporter
 WORKDIR /exporter
 RUN pyinstaller --name amneziawg-exporter --onefile src/exporter.py
 
-FROM debian:bookworm-slim as exporter
+FROM alpine:latest
 COPY --from=builder /exporter/dist/amneziawg-exporter /usr/bin/amneziawg-exporter
 COPY ./Dockerfile /
 CMD ["/usr/bin/amneziawg-exporter"]
@@ -20,10 +20,10 @@ LABEL org.opencontainers.image.authors='@shipilovds (shipilovds@gmail.com)'
 LABEL org.opencontainers.image.url=https://github.com/shipilovds/amneziawg-exporter
 LABEL org.opencontainers.image.documentation=https://github.com/shipilovds/amneziawg-exporter/blob/main/README.md
 
-##############################################################################
-#============================| dpkg builder Image |==========================#
-##############################################################################
-FROM ghcr.io/shipilovds/deb-builder as dpkg-builder
-COPY . /build
-WORKDIR /build
-RUN make deb
+# ##############################################################################
+# #============================| dpkg builder Image |==========================#
+# ##############################################################################
+# FROM ghcr.io/shipilovds/deb-builder as dpkg-builder
+# COPY . /build
+# WORKDIR /build
+# RUN make deb
