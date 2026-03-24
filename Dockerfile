@@ -8,7 +8,7 @@ COPY . /exporter
 WORKDIR /exporter
 RUN pyinstaller --name amneziawg-exporter --onefile src/exporter.py
 
-FROM alpine:latest
+FROM debian:bookworm-slim as exporter
 COPY --from=builder /exporter/dist/amneziawg-exporter /usr/bin/amneziawg-exporter
 COPY ./Dockerfile /
 CMD ["/usr/bin/amneziawg-exporter"]
