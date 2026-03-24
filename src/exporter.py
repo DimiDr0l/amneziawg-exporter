@@ -258,7 +258,7 @@ class Exporter():
             if not self.config['clients_table_enabled']:
                 clients_mapping = {}
             else:
-                clients_mapping = self.read_clients_mapping_from_config(self.config['clients_table_file'])
+                clients_mapping = self.read_clients_mapping_from_config(self.config['awg_config'])
             for peer in parsed_data:
                 client_name = clients_mapping.get(peer['peer'], 'unidentified')
                 self.sent_bytes_metric.labels(peer['peer'], client_name).set(peer.get('sent', 0))
@@ -304,8 +304,8 @@ if __name__ == '__main__':
         'addr': config('AWG_EXPORTER_LISTEN_ADDR', default='0.0.0.0'),
         'metrics_file': config('AWG_EXPORTER_METRICS_FILE', default='/tmp/prometheus/awg.prom'),
         'ops_mode': config('AWG_EXPORTER_OPS_MODE', default='http'),
-        'clients_table_enabled': config('AWG_EXPORTER_CLIENTS_TABLE_ENABLED', default=True, cast=bool),
-        'clients_table_file': config('AWG_EXPORTER_CLIENTS_TABLE_FILE', default='/etc/amnezia/amneziawg/awg0.conf'),
+        'clients_table_enabled': config('AWG_EXPORTER_CLIENTS_ENABLED', default=True, cast=bool),
+        'awg_config': config('AWG_EXPORTER_AWG_CONFIG', default='/etc/amnezia/amneziawg/awg0.conf'),
         'awg_executable': config('AWG_EXPORTER_AWG_SHOW_EXEC', default='awg show all dump')
     }
     log.info('Exporter config:')

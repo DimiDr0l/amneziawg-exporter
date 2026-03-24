@@ -1,2 +1,3 @@
 amneziawg-exporter
 *.deb
+__pycache__

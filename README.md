@@ -24,15 +24,15 @@ amneziawg-exporter has three operating modes (`AWG_EXPORTER_OPS_MODE` environmen
 
 The following environment variables can be used to configure amneziawg-exporter.
 
-| Variable Name                        | Default Value               | Description                                                             |
-|--------------------------------------|-----------------------------|-------------------------------------------------------------------------|
-| AWG_EXPORTER_SCRAPE_INTERVAL         | 60                          | Interval for scraping WireGuard metrics (for the `http` mode).          |
-| AWG_EXPORTER_HTTP_PORT               | 9351                        | Port for HTTP service.                                                  |
-| AWG_EXPORTER_METRICS_FILE            | /tmp/prometheus/awg.prom    | Path to the metrics file for Node exporter textfile collector.          |
-| AWG_EXPORTER_OPS_MODE                | http                        | Operation mode for the exporter (`http`, `metricsfile` or `oneshot`).   |
-| AWG_EXPORTER_CLIENTS_TABLE_ENABLED   | false                       | Whether to enable client identification using a client table.           |
-| AWG_EXPORTER_CLIENTS_TABLE_FILE      | ./clientsTable1             | Path to the client table file.                                          |
-| AWG_EXPORTER_AWG_SHOW_EXEC           | "awg show"                  | Command to run the `awg show` command.                                  |
+| Variable Name                        | Default Value                    | Description                                                             |
+|--------------------------------------|----------------------------------|-------------------------------------------------------------------------|
+| AWG_EXPORTER_SCRAPE_INTERVAL         | 60                               | Interval for scraping WireGuard metrics (for the `http` mode).          |
+| AWG_EXPORTER_HTTP_PORT               | 9351                             | Port for HTTP service.                                                  |
+| AWG_EXPORTER_METRICS_FILE            | /tmp/prometheus/awg.prom         | Path to the metrics file for Node exporter textfile collector.          |
+| AWG_EXPORTER_OPS_MODE                | http                             | Operation mode for the exporter (`http`, `metricsfile` or `oneshot`).   |
+| AWG_EXPORTER_CLIENTS_ENABLED         | false                            | Whether to enable client identification using a client table.           |
+| AWG_EXPORTER_AWG_CONFIG              | /etc/amnezia/amneziawg/awg0.conf | Path to the awg config file.                                            |
+| AWG_EXPORTER_AWG_SHOW_EXEC           | "awg show"                       | Command to run the `awg show` command.                                  |
 
 ## Metrics
 
